@@ -38,6 +38,18 @@ public class BinarySearchTree {
         }
         return 1 + size(root.left) + size(root.right);
     }
+
+    public void search(Node currentNode, int data){
+        if ( currentNode == null)
+            System.out.println(data + " not found in BST!");
+        else if (currentNode.data == data){
+            System.out.println(data+ " Found in BST!");
+        } else if (data <= currentNode.data) {
+             search(currentNode.left,data);
+        }else{
+            search(currentNode.right, data);
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Binary search tree problem");
 
@@ -60,5 +72,7 @@ public class BinarySearchTree {
         binarySearchTree.inOrderTraversal(binarySearchTree.root);
 
         System.out.println("\nSize : "+ binarySearchTree.size(binarySearchTree.root));
+
+        binarySearchTree.search(binarySearchTree.root, 63);
     }
 }
